@@ -42,3 +42,15 @@ ul {
 section p {
     line-height: 1.7;
 }
+.skills {
+    display:flex;
+    flex - wrap: wrap;
+    gap:10px;
+}
+
+.skills span {
+    background: #222;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+}
