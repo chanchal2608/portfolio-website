@@ -44,13 +44,16 @@ section p {
 }
 .skills {
     display:flex;
-    flex - wrap: wrap;
-    gap:10px;
+    flex-wrap: wrap;
+    gap:15px;
+    margin-top:15px;
 }
 
 .skills span {
+    display:inline-block;
     background: #222;
     color: white;
-    padding: 10px 15px;
-    font-size: 14px;
+    padding: 12px 20px;
+    border-radius:25px;
+    font-weight:bold;
 }
