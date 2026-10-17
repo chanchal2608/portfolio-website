@@ -1,59 +1,235 @@
+
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #080d19;
+  --surface: #111a2b;
+  --text: #f1f5f9;
+  --muted: #a7b4c8;
+  --accent: #60a5fa;
+  --border: #26354b;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
 }
 
-header {
-    text-align: center;
-    padding: 80px 20px;
-    background: #222;
-    color: white;
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
-header h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+a:hover {
+  color: #bfdbfe;
 }
 
-header p {
-    font-size: 20px;
+/* ===== Hero and Navigation ===== */
+.hero {
+  min-height: 75vh;
+  padding: 24px 8%;
+  background: radial-gradient(
+    circle at top right,
+    #172c4c,
+    var(--bg) 65%
+  );
 }
 
-section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 12px 0;
+}
+
+nav .logo {
+  margin-right: auto;
+  color: var(--text);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav a:not(.logo) {
+  color: var(--muted);
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.hero-content {
+  max-width: 760px;
+  padding: 110px 0 80px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: var(--accent);
+}
+
+.hero-content > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+/* ===== Buttons ===== */
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #08111f;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: transparent;
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ===== Content Sections ===== */
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 75px 24px;
 }
 
 h2 {
-    color: #222;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-ul {
-    line-height: 2;
+.section > p:not(.eyebrow) {
+  color: var(--muted);
+  max-width: 750px;
 }
 
-section p {
-    line-height: 1.7;
-}
+/* ===== Skills ===== */
 .skills {
-    display:flex;
-    flex-wrap: wrap;
-    gap:15px;
-    margin-top:15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
 }
 
 .skills span {
-    display:inline-block;
-    background: red;
-    color: white;
-    padding: 15px;
-    border-radius:30px;
-    margin:5px;
+  padding: 9px 17px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.skills span:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.note {
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+/* ===== Project Cards ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.project-card {
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  margin-bottom: 12px;
+  font-size: 21px;
+}
+
+.project-card p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.project-card a {
+  font-weight: bold;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 25px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 18px 6%;
+  }
+
+  nav {
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  nav .logo {
+    width: 100%;
+  }
+
+  .hero-content {
+    padding: 75px 0;
+  }
+
+  .section {
+    padding: 55px 20px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
 }
